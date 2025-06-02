@@ -25,7 +25,7 @@ class SampleBoundingBoxes(Scene):
 
         for idx, row in df.iterrows():
             # Load image
-            img_path = os.path.join("fixed", row["filename"])
+            img_path = os.path.join("fixed", str(row["filename"]))
             image = ImageMobject(img_path).scale(0.4)
 
             # Group for ground truth bounding boxes and labels
