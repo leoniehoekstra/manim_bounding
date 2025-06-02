@@ -10,7 +10,7 @@ class SampleBoundingBoxes(Scene):
         self.play(Write(title))
 
         # === Load CSV ===
-        df = pd.read_csv("sample_results_bounding_v3.csv").head(4)
+        df = pd.read_csv("fixed.csv", dtype={'filename': str}).head(4)
 
         # === Colors ===
         GT_COLOR = "#89CFF0"
@@ -71,7 +71,7 @@ class SampleBoundingBoxes(Scene):
             pred_box_groups.append(pred_group)
 
         # Arrange images
-        image_group = VGroup(*image_mobs).arrange(RIGHT, buff=0.5).scale(0.9).to_edge(UP, buff=1.5)
+        image_group = Group(*image_mobs).arrange(RIGHT, buff=0.5).scale(0.9).to_edge(UP, buff=1.5)
 
         # Position labels under each image
         for i in range(4):
